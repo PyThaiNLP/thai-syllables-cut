@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
-requirements = ['pythainlp>=1.5.2','future>=0.16.0']
+requirements = ['pythainlp>=1.5.3','future>=0.16.0']
 setup(name='pythaisyllables',
       version='0.1.1',
       description='Thai syllables segmentation',
