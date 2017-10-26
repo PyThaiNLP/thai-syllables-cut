@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import,unicode_literals,print_function
 from builtins import dict,str
-import os
+import os,codecs
 from pythainlp.tokenize import word_tokenize,dict_word_tokenize
 fileDir = os.path.dirname(__file__)
 filename = os.path.join(fileDir, 'data.txt')
+filename2 = os.path.join(fileDir, 'word_not_syllables_cut.txt')
+def get_data(file):
+    with codecs.open(file, 'r',encoding='utf8') as f:
+        lines = f.read().splitlines()
+    f.close()
+    return lines
 def segment(txt):
-    return dict_word_tokenize(text=txt,file=filename,engine="newmm")
+    return dict_word_tokenize(text=txt,data=get_data(filename)+get_data(filename2),data_type="list",engine="newmm")
 def segment_sentence(data):
     list1=word_tokenize(data,'newmm')
     list2=[]
