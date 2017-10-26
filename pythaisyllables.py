@@ -6,9 +6,9 @@ from pythainlp.tokenize import word_tokenize,dict_word_tokenize
 fileDir = os.path.dirname(__file__)
 filename = os.path.join(fileDir, 'data.txt')
 def segment(txt):
-    return dict_word_tokenize(text=txt,file=filename,engine="longest-matching")
+    return dict_word_tokenize(text=txt,file=filename,engine="newmm")
 def segment_sentence(data):
-    list1=word_tokenize(data,'icu')
+    list1=word_tokenize(data,'newmm')
     list2=[]
     for data in list1:
         list2.extend(segment(data))
